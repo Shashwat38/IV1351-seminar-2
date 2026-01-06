@@ -60,6 +60,7 @@ JOIN teaching_activity ta ON ta.id = a.teaching_activity_id
 JOIN course_instance ci ON ci.id = a.course_instance_id
 JOIN course_layout cl ON cl.id = ci.course_layout_id
 WHERE ci.study_year = 2025
+AND ci.id = 2
 GROUP BY
     cl.course_code,
     ci.instance_id,
