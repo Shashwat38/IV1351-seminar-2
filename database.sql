@@ -25,7 +25,7 @@ CREATE TABLE employee (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     employment_id VARCHAR(50) UNIQUE NOT NULL,
     skill_set VARCHAR(500) NOT NULL,
-    salary VARCHAR(10) NOT NULL,
+    salary INT NOT NULL,
     manager VARCHAR(200) NOT NULL,
     person_id INT NOT NULL,
     department_id INT NOT NULL,
