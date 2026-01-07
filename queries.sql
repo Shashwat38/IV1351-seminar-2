@@ -15,8 +15,9 @@ SELECT
     SUM(CASE WHEN ta.activity_name = 'Other' THEN pa.planned_hours * ta.factor ELSE 0 END) AS other_overhead_hours,
     (2 * cl.hp + 28 + 0.2 * ci.num_students) AS admin_hours,
     (32 + 0.725 * ci.num_students) AS exam_hours,
-    (
-        SUM(pa.planned_hours * ta.factor)
+     (
+        SUM(CASE WHEN ta.activity_name IN ('Lecture','Tutorial','Lab','Seminar','Other')
+                 THEN pa.planned_hours * ta.factor ELSE 0 END)
       + (2 * cl.hp + 28 + 0.2 * ci.num_students)
       + (32 + 0.725 * ci.num_students)
     ) AS total_hours
